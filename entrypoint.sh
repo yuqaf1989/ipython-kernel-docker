@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source /root/miniconda3/bin/activate secretflow
+
 if [ $# -lt 1 ]; then
     connection_file=/tmp/connection-file.json
 else
@@ -7,8 +9,9 @@ else
 fi
 
 cat $connection_file
+cp $connection_file /tmp/tmp-connection-file.json
 
 # Modify the damn connection file to use proper IP address now
-sed -i 's;127.0.0.1;0.0.0.0;' ${connection_file}
+sed -i 's;127.0.0.1;0.0.0.0;' /tmp/tmp-connection-file.json
 
-python3 -m ipykernel_launcher --ip=0.0.0.0 -f $connection_file
+python -m ipykernel_launcher --ip=0.0.0.0 -f /tmp/tmp-connection-file.json

@@ -2,6 +2,8 @@
 
 Basic example of connecting to an iPython kernel running within a Docker container.
 
+Support for [secretflow](https://github.com/secretflow/secretflow)
+
 ## Prerequisites
 
 - [`jq`](https://stedolan.github.io/jq/) - needed to parse the [connection file](https://jupyter-client.readthedocs.io/en/stable/kernels.html#connection-files)
